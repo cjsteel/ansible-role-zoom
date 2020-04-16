@@ -1,0 +1,14 @@
+---
+# tasks file for zoom
+
+# Key fingerprint: 3960 60CA DD8A 7522 0BFC B369 B903 BF18 61A7 C71D
+
+- name: install zoom
+  apt:
+    deb: https://zoom.us/client/latest/zoom_amd64.deb
+    state: present
+  register: zoom_install_latest
+
+- name: zoom | run apt -f install to install additional package requirements
+  command: apt -f install
+  register: zoom_apt_f_install

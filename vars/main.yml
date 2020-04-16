@@ -1,0 +1,8 @@
+---
+# vars file for zoom
+
+_zoom_packages:
+  default:
+    - zoom_amd64.deb
+
+zoom_packages: "{{ _zoom_packages[ansible_os_family] | default(_zoom_packages['default']) }}"
